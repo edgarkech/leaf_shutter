@@ -29,6 +29,7 @@ module roof(l, w, h){
 
 // a wedge module - this is heavily used for cutting edges
 // please keep as is    
+
 module wedge(l, w, h) {
     polyhedron(
             points=[
@@ -48,6 +49,7 @@ module wedge(l, w, h) {
             ]
     );
    };
+
 
 // simple tube module.   
 module tube(d1, d2, h) {
@@ -77,3 +79,10 @@ module hex(kw, h) {
                 }
 }
 
+
+// modult for a pie slice
+module pie_slice(a, r, h){
+  // a:angle, r:radius, h:height
+  rotate_extrude(angle=a) square([r,h]);
+}
+//pie_slice(110,20,3);
