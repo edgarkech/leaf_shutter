@@ -1,3 +1,5 @@
+Scalable and adaptable leaf shutter
+
 Seems you are interested in large format photography stuff, otherwise you wouldn't be here - right?
 As the title of this project already suggests, this is all about my attempt to create an electronically controlled leaf shutter.
 
