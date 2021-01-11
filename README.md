@@ -31,7 +31,7 @@ Some project goals:
 - learn a little bit about microcontrollers and their programming
 
 Early design decisions:
-- completely 3D printed shutter leaves and gears
+- completely 3D printed shutter leaves and gears. Although thin steel leaves with about 0.1mm were a nice choice, they would be quite difficult to cut and drill precisely. After some initial testing I found out that printed shutter leaves with about 0.3 mm seem to be sufficient and quite easy to make, including a partial gear. 
 - in contrast to the existing leaf shutter designs I will use a gear ring and gears instead of levers and curves for opening/closing the shutter
 - Arduino UNO Rev. 3 as microcontroller
 - LCD and Keypad shield similar to this one: https://www.dfrobot.com/product-51.html
@@ -48,10 +48,9 @@ Next steps:
 - bug fixing and optimizing the initial programing
 - cleaning up the SCAD files
 - cleaning up the Arduino sketch
-- publishing the SCAD files and the Arduino sketch
 - designing a case for the control unit
-- adapt the shutter unit to one of my cameras
-- real world testing with a barrel lens
+- adapt the shutter unit to a lensboard and a (barrel) lens
+- real world testing
 
 Some very kind people asked me about the possibility to show their appreciation by donating to me.
 If you really felt somehow obliged to do so, then you should use https://paypal.me/EdgarKech :-) .
