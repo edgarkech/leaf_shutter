@@ -5,8 +5,8 @@ If I am not misinformed, large format shutters aren't produced any longer, so we
 And since we can assume that the vast majority of the available shutters aren't serviced as they should be, the market for good and working shutters is shrinking and their prices are ascending.
 
 But...
-... we have 3D printers capable of printing quite precise parts.
-... we have cheap and capable microcontrollers and other electronic components.
+- ... we have 3D printers capable of printing quite precise parts.
+- ... we have cheap and capable microcontrollers and other electronic components.
 
 So why not building our own, electronically controlled large format leaf shutter...???
 
