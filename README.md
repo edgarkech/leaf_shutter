@@ -30,10 +30,11 @@ Some project goals:
 
 Early design decisions:
 - completely 3D printed shutter leaves and gears
+- in contrast to the existing leaf shutter designs I will use a gear ring and gears instead of levers and curves for opening/closing the shutter
 - Arduino UNO Rev. 3 as microcontroller
 - LCD and Keypad shield similar to this one: https://www.dfrobot.com/product-51.html
-- mechanics driven by a stepper motor similar to this one: https://www.omc-stepperonline.com/pancake-nema-11-bipolar-1-8deg-10ncm-14-164oz-in-0-5a-28x28x9-5mm-4-wires.html
-- stepper driver similar to the EasyDriver https://www.schmalzhaus.com/EasyDriver/ 
+- Mechanics driven by a stepper motor similar to this one: https://www.omc-stepperonline.com/pancake-nema-11-bipolar-1-8deg-10ncm-14-164oz-in-0-5a-28x28x9-5mm-4-wires.html . Initial thoughts also included solenoid-driven opening/closing, but a stepper motor driven design seems to be easier. 
+- Stepper driver similar to the EasyDriver https://www.schmalzhaus.com/EasyDriver/ 
 
 Current Status:
 - mechanics designs for the first prototype 90%
