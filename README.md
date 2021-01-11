@@ -12,14 +12,14 @@ But...
 
 So why not building our own, electronically controlled large format leaf shutter...???
 
-let's start with my very own project goals and requirements:
+Let's start with my very own project goals and requirements:
 - leaf shutter design with 5 or 6 leaves as most of the classic Copal/Compur/Compound/Seiko/Rapax/Alphax/... shutters
 - simple mechanics
 - scalable and adaptable design, primarily as behind-the-lens-shutter, not necessarily as between-the-lens-shutter
 - shutter opening of 30...70mm, maybe even larger
 - electronically controlled by widely available microcontroller
 - capable of most common large format shutter speeds 1/30 ... 30s
-- all components either 3D printed or widely available from eBay, Aliexpress, Amazon or local DIY
+- all components either 3D printed or widely available from eBay, Aliexpress, Amazon or local hardware/DIY shops
 - no expensive or exotic components
 - besides 3D printer and soldering iron no need for special tools
 
@@ -38,7 +38,7 @@ Early design decisions:
 - Mechanics driven by a stepper motor similar to this one: https://www.omc-stepperonline.com/pancake-nema-11-bipolar-1-8deg-10ncm-14-164oz-in-0-5a-28x28x9-5mm-4-wires.html . Initial thoughts also included solenoid-driven opening/closing, but a stepper motor driven design seems to be easier. 
 - Stepper driver similar to the EasyDriver https://www.schmalzhaus.com/EasyDriver/ 
 
-Current Status:
+Current status:
 - mechanics designs for the first prototype 90%
 - electronic design for the first prototype 90%
 - programming for the first prototype 90%
