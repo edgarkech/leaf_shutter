@@ -1,17 +1,12 @@
-/** this is derived from 
+/*
+ * this is derived from 
  * https://wiki.dfrobot.com/Arduino_LCD_KeyPad_Shield__SKU__DFR0009_
- *    
- *  For german explanation visit 
- *  http://www.fambach.net
- */
+ * as well as from the basic examples from
+ * http://www.schmalzhaus.com/EasyDriver/Examples/EasyDriverExamples.html
+*/
 
-//Sample using LiquidCrystal library
+//we re using the LiquidCrystal library, so make sure it is available in the correct place
 #include <LiquidCrystal.h>
-
-/*******************************************************
-This program will test the LCD panel and the buttons
-Mark Bramwell, July 2010
-********************************************************/
 
 // select the pins used on the LCD panel
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
@@ -19,16 +14,19 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 // define the pins for the EasyDriver stepper driver
 int DIR = 3;          // PIN  3 = DIR
 int STEP = 2;        // PIN  2 = STEP
-
-int StepDistance = 50; // with full steps we should have 50 steps
-int StepCounter = 0;
-int StepDelay = 1;
-int triggerOpen = false;
-int triggerClose = false;
-int triggerFire = false;
-
 // currently not used - maybe we need them later.
-// int SLEEP = 1;      // PIN 13 = SLP
+// int SLEEP = 1;      // maybe we enable this later bring down the power consumption
+// MS1 and MS2 will be hard wired to GND to enable full step mode, otherwise we would have 1/8th steps
+
+// some variables need initial values
+int StepDistance = 50; // with full steps we should have 50 steps; adapt to your very own stepper motor
+int StepCounter = 0; // we have to count the number of already executed steps
+int StepDelay = 1; // we are using a minimal delay between our HIGH/LOW signals
+int triggerOpen = false; // initial state should be false, so no action is triggered 
+int triggerClose = false; // initial state should be false, so no action is triggered
+int triggerFire = false; // initial state should be false, so no action is triggered
+
+
 
 // define some values used by the panel and buttons
 int lcd_key     = 0;
@@ -39,13 +37,14 @@ int adc_key_in  = 0;
 #define btnLEFT   3
 #define btnSELECT 4
 #define btnNONE   5
+int btnDelay = 200; // with this we are slow down the code execution to get a clean event for a short button action.
 
-// initial values (picked from the arrays below)
-int shutterIndex = 7;
-int shutterSpeed = 1000;
-String shutterText = String("1s");
+// initial values (picked from the two arrays below) - make sure that their values are consistent
+int shutterIndex = 7; // 7 should point to the initial shutter speed of 1s
+int shutterSpeed = 1000; // this should correspond to our shutterIndex for 1s 
+String shutterText = String("1s"); // this should also correspond to our initial shutter speed
 
-// array for showing the selected shutter speeds in the most usual way
+// array for showing the selected shutter speeds in the most common way
 char textarray[][8] = {
   "1/125s", 
   "1/60s ", 
@@ -80,7 +79,7 @@ char textarray[][8] = {
   "600s  "
   };
 
-// array for the shutter speeds
+// array for the shutter speeds in seconds the variable shutterSpeed will be picked and calculated from this array
 float speedarray[] = {
   0.008,
   0.01667,
@@ -152,22 +151,28 @@ void loop()
   // shutter opening action
   if (triggerOpen == true)
   {
+    // setting the correct direction for opening
     digitalWrite(DIR, HIGH); 
+    
+    // the EasyDriver stepper driver needs a change from the input signal, so we give a HIGH and a LOW signal on the STEP pin
     digitalWrite(STEP, HIGH);
     delay(StepDelay);         
     digitalWrite(STEP, LOW);
     delay(StepDelay);
 
-    StepCounter = StepCounter + 1;
-
-    if (StepCounter == StepDistance)
+    StepCounter = StepCounter + 1; // counting the steps
+    
+    // after reaching the StepDistance, we print a new message on the LCD and set our trigger variables and reset the StepCounter
+    if (StepCounter == StepDistance) 
     {
       lcd.setCursor(0,0);
       lcd.print("Shutter opened");
       StepCounter = 0;
       triggerOpen = false;
-
-      if (triggerFire == true)
+      
+      // if our opening was triggered by the firing (SELECT) button, we print a new message, wait as long as our current shutterspeed 
+      // then print another message and re(set) our trigger variables
+      if (triggerFire == true) 
       {
         lcd.setCursor(0,0);
         lcd.print("Exposing......");
@@ -181,7 +186,8 @@ void loop()
     }
   }
 
-  // shutter closing action
+  // shutter closing action is similar to our opening action, but a little bit easier
+  // as we don't have to take care about how the closing was triggered
   if (triggerClose == true)
   {
     digitalWrite(DIR, LOW); 
@@ -203,13 +209,15 @@ void loop()
  
  lcd_key = read_LCD_buttons();  // read the buttons
 
- switch (lcd_key)               // depending on which button was pushed, we perform an action
+ // depending on which button was pushed, we set some variables and show corresponding messages on the LCD
+ // we are using a small delay (set via btnDelay) to get single button events
+ switch (lcd_key)               
  {
    case btnRIGHT:
      {
      // go to the next shutter speed (and text) in our arrays
      // caution: we have to limit this so we stay within our defined array
-     delay(200);
+     delay(btnDelay);
      shutterIndex = shutterIndex+1;
      shutterSpeed = 1000*speedarray[shutterIndex];
      shutterText = textarray[shutterIndex]; 
@@ -223,7 +231,7 @@ void loop()
      {
      // go to the previous shutter speed (and text) in our arrays
      // caution: we have to limit this so we stay within our defined array
-     delay(200);
+     delay(btnDelay);
      shutterIndex = shutterIndex-1; 
      shutterSpeed = 1000*speedarray[shutterIndex];
      shutterText = textarray[shutterIndex]; 
@@ -236,11 +244,8 @@ void loop()
    case btnUP:
      {
      // open the shutter
-     delay(200);
+     delay(btnDelay);
      
-     
-     // some logic for opening the shutter
-
      // set the open & close triggers
      triggerOpen = true;
      triggerClose = false; 
@@ -251,7 +256,7 @@ void loop()
    case btnDOWN:
      {
      // close the shutter
-     delay(200);
+     delay(btnDelay);
 
      // set the open & close triggers
      triggerOpen = false;
@@ -263,7 +268,7 @@ void loop()
    case btnSELECT:
      {
      // fire the shutter
-     delay(200); 
+     delay(btnDelay); 
 
      // set the open & close triggers
      triggerOpen = true;
@@ -274,9 +279,8 @@ void loop()
      }
      case btnNONE:
      {
+     // just do nothing
      
-     //reset 
-     //lcd.print("NONE  ");
      break;
      }
  }
