@@ -17,7 +17,7 @@ vBladeAxis_d = 4;
 vBladeAxisEye = 10;
 vBladeAxisTube_d = vBladeAxis_d+2;
 vBladeAxisCircle = vShutterOpening+10;
-vBladeAxisHole_d = vBladeAxis_d + vTolerance;
+vBladeAxisHole_d = vBladeAxis_d + (2*vTolerance);
 vBladeAxisHole_h = 10;
 
 vBladeBase_d = vBladeAxisCircle;
@@ -27,7 +27,7 @@ vBladeOuter_d = vBladeAxisCircle + vBladeAxisEye;
 
 vBladeOffset = vBladeAxisCircle/2;
 
-vModul = 1;
+vModul = 0.985;
 vZahnZahl = 20;
 vZahnBreite = 3 + vBladeThickness;
 vBohrung = vBladeAxisHole_d;

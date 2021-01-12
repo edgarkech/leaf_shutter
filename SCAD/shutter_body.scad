@@ -1,5 +1,5 @@
 // loading the base configuration
-include <config.scad>;
+// include <config.scad>;
 
 // some modules such as hex, countersunk screws, roof, wedge are available in a module file
 use <modules.scad>;
