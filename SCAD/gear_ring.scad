@@ -12,7 +12,7 @@ vRandbreite = 8.29; // empirisch ermittelt anhand des errechneten Außendurchmes
 vEingriffswinkel = 20;
 vSchraegungswinkel = 0;
 
-vModul_aussen = 0.985; // muss ggf. noch angepasst werden
+vModul_aussen = 0.98; // muss ggf. noch angepasst werden
 vZahnzahl_aussen = 87; // muss angepasst werden, damit wir einen Aussendurchmesser von 89 bekommen
 vBohrung = 76;
 
