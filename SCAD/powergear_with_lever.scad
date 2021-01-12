@@ -3,7 +3,7 @@ use <getriebe.scad>;
 
 $fn = 120;
 
-vModul = 0.985; // empirisch ermittelt, damit wir "genau das richtige Spiel" für einen leichten, aber dennoch hinreichend präzisen Lauf bekommen
+vModul = 0.98; // empirisch ermittelt, damit wir "genau das richtige Spiel" für einen leichten, aber dennoch hinreichend präzisen Lauf bekommen
 vZahnzahl = 20;
 vBreite = 3;
 vBohrung = 4.1; 
