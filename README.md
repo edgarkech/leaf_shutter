@@ -29,11 +29,14 @@ Some project goals:
 - prototyping and showcasing a working shutter
 - refresh some of my almost forgotten knowledge about basic electronics
 - learn a little bit about microcontrollers and their programming
+- designs good and easy enough to be just a blueprint for less experienced people to just make their own builds.
+- designs universal and modular enough to be adaptable to different components (different microcontrollers, steppers, stepper drivers, battery holders, connectors, screws, ...)
+
 
 Early design decisions:
-- completely 3D printed shutter leaves and gears. Although thin steel leaves with about 0.1mm were a nice choice, they would be quite difficult to cut and drill precisely. After some initial testing I found out that printed shutter leaves with about 0.3 mm seem to be sufficient and quite easy to make, including a partial gear. 
-- in contrast to the existing leaf shutter designs I will use a gear ring and gears instead of levers and curves for opening/closing the shutter
-- Arduino UNO Rev. 3 as microcontroller
+- completely 3D printed shutter leaves and gears. Although thin steel leaves with about 0.1mm were a nice choice, they would be quite difficult to cut and drill precisely - at least at the kitchen table (which is my workshop). After some initial testing I found out that printed shutter leaves with about 0.3 mm seem to be sufficient and quite easy to make, including a partial gear. 
+- in contrast to the existing leaf shutter designs I will use a gear ring and gears instead of levers and curves for opening/closing the shutter. In my opinion this should be superior in terms of friction and keeping tolerances.
+- Arduino UNO Rev. 3 as microcontroller. Maybe also a version with an Arduino NANO.
 - LCD and Keypad shield similar to this one: https://www.dfrobot.com/product-51.html
 - Mechanics driven by a stepper motor similar to this one: https://www.omc-stepperonline.com/pancake-nema-11-bipolar-1-8deg-10ncm-14-164oz-in-0-5a-28x28x9-5mm-4-wires.html . Initial thoughts also included solenoid-driven opening/closing, but a stepper motor driven design seems to be easier. 
 - Stepper driver similar to the EasyDriver https://www.schmalzhaus.com/EasyDriver/ 
