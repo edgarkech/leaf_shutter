@@ -54,6 +54,7 @@ Next steps:
 - designing a case for the control unit
 - adapt the shutter unit to a lensboard and a (barrel) lens
 - real world testing
+- make Marc Morel happy with a self timer :-) (still one button unassigned...)
 
 Some very kind people asked me about the possibility to show their appreciation by donating to me.
 If you really felt somehow obliged to do so, then you should use https://paypal.me/EdgarKech :-) .
