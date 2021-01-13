@@ -1,54 +1,6 @@
+include <config.scad>;
 
-use <getriebe.scad>;
-use <modules.scad>;
-
-$fn = 120;
-
-
-vTolerance = 0.2;
-vNoOfBlades = 5;
-vAngleIncrement = 360/vNoOfBlades;
-vShutterOpening = 40;
-
-
-vBladeThickness = 0.3;
-vBladeOverlap = 2;
-vBladeAxis_d = 4;
-vBladeAxisEye = 10;
-vBladeAxisTube_d = vBladeAxis_d+2;
-vBladeAxisCircle = vShutterOpening+10;
-vBladeAxisHole_d = vBladeAxis_d + (2*vTolerance);
-vBladeAxisHole_h = 10;
-
-vBladeBase_d = vBladeAxisCircle;
-vBladeBase_d1 = vBladeAxisCircle+vBladeOverlap;
-vBladeBase_d2 = vBladeAxisCircle-vBladeOverlap;
-vBladeOuter_d = vBladeAxisCircle + vBladeAxisEye;
-
-vBladeOffset = vBladeAxisCircle/2;
-
-vModul = 0.985;
-vZahnZahl = 20;
-vZahnBreite = 3 + vBladeThickness;
-vBohrung = vBladeAxisHole_d;
-vEingriffswinkel = 20;
-vSchraegungswinkel = 0;
-vOptimiert = false;
-
-vGear_offsetX = vBladeOffset;
-vGear_offsetY = 0;
-vGear_offsetZ = 0;
-
-vGearBase_d = 27;
-vGearBase_h = vBladeThickness;
-
-vGearCutoff_l = vGearBase_d;
-vGearCutoff_w = vGearBase_d;
-vGearCutoff_h = vZahnBreite;
-vGearCutoff_offsetX = -vGearCutoff_l/2;
-vGearCutoff_offsetY = 0;
-vGearCutoff_offsetZ = 0;
-
+// all variables are defined in config.scad!
 
 intersection(){
     difference(){
@@ -57,7 +9,7 @@ intersection(){
             difference(){
                 translate([vBladeOffset, 0, 0])
                     //cylinder(d=vBladeBase_d, h=vBladeThickness);
-                    cylinder(d=vBladeBase_d1, h=vBladeThickness);
+                    cylinder(d=vBladeBasePlusOverlap_d, h=vBladeThickness);
                 translate([vBladeAxisEye,0,0])
                     cube([vBladeBase_d, vBladeBase_d/2, vBladeThickness]);
                 }
@@ -76,7 +28,7 @@ intersection(){
         rotate([0,0, vAngleIncrement])
             translate([vBladeOffset, 0, 0])
                 //cylinder(d=vBladeBase_d, h=vBladeThickness);
-                cylinder(d=vBladeBase_d2, h=vBladeThickness);
+                cylinder(d=vBladeBaseMinusOverlap_d, h=vBladeThickness);
         
     }
     cylinder(d=vBladeOuter_d, h=vBladeThickness);
@@ -85,22 +37,22 @@ intersection(){
 
 
 
-translate([vGear_offsetX, vGear_offsetY, vGear_offsetZ])
+translate([vBladeGear_offsetX, vBladeGear_offsetY, vBladeGear_offsetZ])
     rotate([0, 0, 0])
         difference(){
             
             union(){
-                stirnrad (modul=vModul, zahnzahl=vZahnZahl, breite=vZahnBreite, bohrung=vBohrung, eingriffswinkel=vEingriffswinkel, schraegungswinkel=vSchraegungswinkel, optimiert=vOptimiert);
-                cylinder(d=vGearBase_d, h=vGearBase_h);
+                stirnrad (modul=vBladeGearModule, zahnzahl=vBladeGearNoOfTeeth, breite=vBladeGear_w, bohrung=vBladeGearHole_d, eingriffswinkel=vBladeGearAngle, schraegungswinkel=vBladeGearHelicalAngle, optimiert=vBladeGearOptimization);
+                cylinder(d=vBladeGearBase_d, h=vBladeGearBase_h);
                 }
             // we can only use a quarter of the gear, the rest will be useless/hindering
             // so we cut it off    
-            translate([vGearCutoff_offsetX, vGearCutoff_offsetY, vGearCutoff_offsetZ])
-                cube([vGearCutoff_l, vGearCutoff_w, vGearCutoff_h]);
-            translate([-vGearCutoff_l, -vGearCutoff_w/2, vGearCutoff_offsetZ])
-                cube([vGearCutoff_l, vGearCutoff_w, vGearCutoff_h]);
+            translate([vBladeGearCutoff_offsetX, vBladeGearCutoff_offsetY, vBladeGearCutoff_offsetZ])
+                cube([vBladeGearCutoff_l, vBladeGearCutoff_w, vBladeGearCutoff_h]);
+            translate([-vBladeGearCutoff_l, -vBladeGearCutoff_w/2, vBladeGearCutoff_offsetZ])
+                cube([vBladeGearCutoff_l, vBladeGearCutoff_w, vBladeGearCutoff_h]);
             // since our gearbase is solid, we have to drill through it
-            cylinder(d=vBladeAxisHole_d, h=vZahnBreite);
+            cylinder(d=vBladeAxisHole_d, h=vBladeGear_w);
             
 
 
@@ -109,7 +61,7 @@ translate([vGear_offsetX, vGear_offsetY, vGear_offsetZ])
 // adding a little tube for guiding the blade better on its axis
 difference(){
     translate([vBladeAxisCircle/2, 0, 0])
-        cylinder(d=vBladeAxisTube_d, h=vZahnBreite);
+        cylinder(d=vBladeAxisTube_d, h=vBladeGear_w);
     translate([vBladeAxisCircle/2, 0, 0])
-        cylinder(d=vBladeAxisHole_d, h=vZahnBreite);
+        cylinder(d=vBladeAxisHole_d, h=vBladeGear_w);
 }
