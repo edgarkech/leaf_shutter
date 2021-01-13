@@ -29,8 +29,8 @@ Some project goals:
 - prototyping and showcasing a working shutter
 - refresh some of my almost forgotten knowledge about basic electronics
 - learn a little bit about microcontrollers and their programming
-- designs good and easy enough to be just a blueprint for less experienced people to just make their own builds.
-- designs universal and modular enough to be adaptable to different components (different microcontrollers, steppers, stepper drivers, battery holders, connectors, screws, ...)
+- design good and easy enough to be just a blueprint for less experienced people to just make their own builds.
+- design universal and modular enough to be adaptable to different components (different microcontrollers, steppers, stepper drivers, battery holders, connectors, screws, ...)
 
 
 Early design decisions:
@@ -38,7 +38,7 @@ Early design decisions:
 - in contrast to the existing leaf shutter designs I will use a gear ring and gears instead of levers and curves for opening/closing the shutter. In my opinion this should be superior in terms of friction and keeping tolerances.
 - Arduino UNO Rev. 3 as microcontroller. Maybe also a version with an Arduino NANO.
 - LCD and Keypad shield similar to this one: https://www.dfrobot.com/product-51.html
-- Mechanics driven by a stepper motor similar to this one: https://www.omc-stepperonline.com/pancake-nema-11-bipolar-1-8deg-10ncm-14-164oz-in-0-5a-28x28x9-5mm-4-wires.html . Initial thoughts also included solenoid-driven opening/closing, but a stepper motor driven design seems to be easier. 
+- Mechanics driven by a stepper motor similar to this one: https://www.omc-stepperonline.com/pancake-nema-11-bipolar-1-8deg-10ncm-14-164oz-in-0-5a-28x28x9-5mm-4-wires.html . Initial thoughts also included solenoid-driven opening/closing, but a stepper motor driven design seems to be easier and superior in terms of longer shutter speeds (and keeping the shutter open for setting up). 
 - Stepper driver similar to the EasyDriver https://www.schmalzhaus.com/EasyDriver/ 
 
 Current status:
@@ -46,14 +46,15 @@ Current status:
 - electronic design for the first prototype 90%
 - programming for the first prototype 90%
 
-Next steps:
+Next steps or the long way to version 1.0:
 - test driving the first prototype
 - bug fixing and optimizing the initial programing
 - cleaning up the SCAD files
 - cleaning up the Arduino sketch
 - designing a case for the control unit
 - adapt the shutter unit to a lensboard and a (barrel) lens
-- real world testing
+- some real world testing
+- releasing version 1.0 :-)
 - make Marc Morel happy with a self timer :-) (still one button unassigned...)
 
 Some very kind people asked me about the possibility to show their appreciation by donating to me.
