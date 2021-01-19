@@ -21,7 +21,7 @@ int STEP = 2;        // PIN  2 = STEP
 // some variables need initial values
 int StepDistance = 50; // with full steps we should have 50 steps; adapt to your very own stepper motor
 int StepCounter = 0; // we have to count the number of already executed steps
-int StepDelay = 1; // we are using a minimal delay between our HIGH/LOW signals
+int StepDelay = 500; // we are using a minimal delay between our HIGH/LOW signals
 int triggerOpen = false; // initial state should be false, so no action is triggered 
 int triggerClose = false; // initial state should be false, so no action is triggered
 int triggerFire = false; // initial state should be false, so no action is triggered
@@ -155,10 +155,10 @@ void loop()
     digitalWrite(DIR, HIGH); 
     
     // the EasyDriver stepper driver needs a change from the input signal, so we give a HIGH and a LOW signal on the STEP pin
-    digitalWrite(STEP, HIGH);
-    delay(StepDelay);         
     digitalWrite(STEP, LOW);
-    delay(StepDelay);
+    delayMicroseconds(StepDelay);         
+    digitalWrite(STEP, HIGH);
+    delayMicroseconds(StepDelay);
 
     StepCounter = StepCounter + 1; // counting the steps
     
@@ -191,10 +191,10 @@ void loop()
   if (triggerClose == true)
   {
     digitalWrite(DIR, LOW); 
-    digitalWrite(STEP, HIGH);
-    delay(StepDelay);         
     digitalWrite(STEP, LOW);
-    delay(StepDelay);
+    delayMicroseconds(StepDelay);         
+    digitalWrite(STEP, HIGH);
+    delayMicroseconds(StepDelay);
 
     StepCounter = StepCounter + 1;
 

@@ -48,7 +48,7 @@ vBladeAxis_d = 4; // default is 4
 vBladeAxisEye = 10; // default is 10
 vBladeAxisTube_d = vBladeAxis_d+2; // default is vBladeAxis_d+2
 vBladeAxisCircle = vShutterOpening+10; // default is vShutterOpening+10
-vBladeAxisHole_d = vBladeAxis_d + (2*vTolerance); // default is vBladeAxis_d + (2*vTolerance)
+vBladeAxisHole_d = vBladeAxis_d + (2.5*vTolerance); // default is vBladeAxis_d + (2*vTolerance)
 vBladeAxisHole_h = 10; // default is 10
 
 vBladeBase_d = vBladeAxisCircle; // DO NOT CHANGE
@@ -58,7 +58,7 @@ vBladeOuter_d = vBladeAxisCircle + vBladeAxisEye; // DO NOT CHANGE
 
 vBladeOffset = vBladeAxisCircle/2; // DO NOT CHANGE
 
-vBladeGearModule = 0.985; // default is 0.985, german meaning is Modul
+vBladeGearModule = 0.965; // default is 0.985, german meaning is Modul
 vBladeGearNoOfTeeth = 20; // default is 20, german meaning is Zahnzahl
 vBladeGear_w = 3 + vBladeThickness; // default is 3 + vBladeThickness, german meaning is Zahnbreite
 vBladeGearHole_d = vBladeAxisHole_d; // default is vBladeAxisHole_d, german meaning is Zahnradbohrung
@@ -115,3 +115,11 @@ vGearRingCutout_offsetZ = 0; // DO NOT CHANGE
 ## variables specifically for the power gear
 ##################################################
 */
+
+/*
+##################################################
+## variables specifically for the shutter body
+##################################################
+*/
+
+
