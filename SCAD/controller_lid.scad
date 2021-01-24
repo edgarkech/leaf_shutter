@@ -11,7 +11,7 @@ $fn=120;
 vWallStrength = 2;
 vTolerance = 0.2;
 
-
+// CAUTION: cutout and button hole measurements were measured "mirrored", so we have to do a mirror() for the whole lid
 
 // for easier vizualization
 vController_l = 80;

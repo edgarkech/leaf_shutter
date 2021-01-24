@@ -64,3 +64,12 @@ But I am also happy if you post pictures of your build to https://www.facebook.c
 Update 2021-01-16:
 - Added some pictures of the mechanics.
 - With some minor tweaking I was able to reduce the overall friction which also allowed me to reduce the delays between the steps to the half. So for now (with a 1.8° per step stepper motor) opening and closing the shutter takes about 1/10s. A different stepper (7.5° per step) will reduce the number of necessary steps from 50 to 10 and thus the opening and closing time to about 1/50s. There's also the chance that I will get enough torque from that (already ordered) stepper to be able to change the gear ratio (and hopefully keep my current delay settings without losing steps)... let's wait and see. 
+
+Update 2021-01-24:
+- still waiting for the faster stepper motors, so no updates to the shutter mechanics
+- changed the shutter body: added "ears" for screwing the shutter to lid and lens adapter
+- added integrated shutter lid / lensboard (Linhof/Wista style)
+- added lens flange for adapting threaded barrel or process lenses (in this case for LOMO RF-3 or RF-4 process lenses)
+- added controller case (buttons currently missing!)
+- some SCAD code consolidation in progress
+- re-created the STLs to match the current SCAD files
