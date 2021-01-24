@@ -23,21 +23,24 @@ vShutterBodyOuter_offsetZ = 0;
 vShutterOpening_d = 40;
 vShutterOpening_h = vShutterBodyOuter_h;
 
-vLensThread_d = 60;
-vLensThread_h = 9;
+vLensThread_d = 52.3; // Lomo RF3
+vLensThread_h = 9; // Lomo RF3
+//vLensThread_d = 60.3; // Lomo RF4
+//vLensThread_h = 11; // Lomo RF4
 vLensThreadPitch = 0.75;
 vLensThread_offsetX = 0;
 vLensThread_offsetY = 0;
 vLensThread_offsetZ = 7;
 
-vLensBore_d = 58+(2*vTolerance);
+vLensBore_d = 51+(2*vTolerance); // Lomo RF3
+//vLensBore_d = 58+(2*vTolerance); // Lomo RF4
 vLensBore_h = 7;
 vLensBore_offsetX = 0;
 vLensBore_offsetY = 0;
 vLensBore_offsetZ = 0;
 
 vLensRing_d1 = vLensThread_d + 28;
-vLensRing_d2 = vLensThread_d + 10;
+vLensRing_d2 = vLensThread_d + 6;
 vLensRing_h = vLensBore_h + vLensThread_h;
 
 
