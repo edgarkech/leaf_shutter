@@ -43,6 +43,7 @@ translate([vBladeGear_offsetX, vBladeGear_offsetY, vBladeGear_offsetZ])
             
             union(){
                 stirnrad (modul=vBladeGearModule, zahnzahl=vBladeGearNoOfTeeth, breite=vBladeGear_w, bohrung=vBladeGearHole_d, eingriffswinkel=vBladeGearAngle, schraegungswinkel=vBladeGearHelicalAngle, optimiert=vBladeGearOptimization);
+                // we extend our blade contour and add a cylinder below the gear. this will prevent the gear ring to slip down and block the blades movement.
                 cylinder(d=vBladeGearBase_d, h=vBladeGearBase_h);
                 }
             // we can only use a quarter of the gear, the rest will be useless/hindering

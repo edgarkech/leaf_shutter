@@ -56,15 +56,15 @@ vSealCylinder_offsetZ = vWallStrength;
 vDisplayCutout_l = 68;
 vDisplayCutout_w = 16;
 vDisplayCutout_h = vWallStrength;
-vDisplayCutout_offsetX = 7;
-vDisplayCutout_offsetY = 23;
+vDisplayCutout_offsetX = 6.5;
+vDisplayCutout_offsetY = 24;
 vDisplayCutout_offsetZ = 0; 
 
 vDisplayFrameCutout_l = 74;
 vDisplayFrameCutout_w = 26;
 vDisplayFrameCutout_h = vWallStrength;
-vDisplayFrameCutout_offsetX = 4;
-vDisplayFrameCutout_offsetY = 18;
+vDisplayFrameCutout_offsetX = 3.5;
+vDisplayFrameCutout_offsetY = 19;
 vDisplayFrameCutout_offsetZ = vWallStrength;
 
 vBrightnessPotCutout_l = 12;

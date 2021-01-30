@@ -23,17 +23,17 @@ vShutterBodyOuter_offsetZ = 0;
 vShutterOpening_d = 40;
 vShutterOpening_h = vShutterBodyOuter_h;
 
-vLensThread_d = 52.3; // Lomo RF3
-vLensThread_h = 9; // Lomo RF3
-//vLensThread_d = 60.3; // Lomo RF4
-//vLensThread_h = 11; // Lomo RF4
+//vLensThread_d = 52.3; // Lomo RF3
+//vLensThread_h = 9; // Lomo RF3
+vLensThread_d = 60.3; // Lomo RF4
+vLensThread_h = 11; // Lomo RF4
 vLensThreadPitch = 0.75;
 vLensThread_offsetX = 0;
 vLensThread_offsetY = 0;
 vLensThread_offsetZ = 7;
 
-vLensBore_d = 51+(2*vTolerance); // Lomo RF3
-//vLensBore_d = 58+(2*vTolerance); // Lomo RF4
+//vLensBore_d = 51+(2*vTolerance); // Lomo RF3
+vLensBore_d = 58+(2*vTolerance); // Lomo RF4
 vLensBore_h = 7;
 vLensBore_offsetX = 0;
 vLensBore_offsetY = 0;
@@ -59,11 +59,10 @@ vRib_offsetX = -vRib_l/2;
 vRib_offsetY = -vRib_w/2;
 vRib_offsetZ = 0;
 
-vStepperCutout_l = 40;
-vStepperCutout_w = 30;
+vStepperCutout_d = 36; // stepper is 35mm, but we want a little bit clearance
 vStepperCutout_h = vLensRing_h;
-vStepperCutout_offsetX = 38;
-vStepperCutout_offsetY = -vStepperCutout_w/2;
+vStepperCutout_offsetX = 53.5;
+vStepperCutout_offsetY = 0;
 vStepperCutout_offsetZ = 0;
 
     difference(){
@@ -98,7 +97,7 @@ vStepperCutout_offsetZ = 0;
         
         // cutout for stepper motor
         translate([vStepperCutout_offsetX, vStepperCutout_offsetY, vStepperCutout_offsetZ])
-                        cube([vStepperCutout_l, vStepperCutout_w, vStepperCutout_h]);
+                        cylinder(d=vStepperCutout_d, h=vStepperCutout_h);
         
          
         // screw holes for the lid screws

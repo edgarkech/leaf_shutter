@@ -1,24 +1,19 @@
+include <config.scad>;
 
-use <getriebe.scad>;
+difference(){
+    union(){
+        // the gear itself
+        stirnrad (modul=vPowerGearModule, zahnzahl=vPowerGearNoOfTeeth, breite=vPowerGearThickness, bohrung=vPowerGearHole_d, eingriffswinkel=vPowerGearAngle, schraegungswinkel = vPowerGearHelicalAngle, optimiert=vPowerGearOptimization);
+        
+        // we add a lever/angle indicator to the gear
+        translate([vPowerGearLever_offsetX, vPowerGearLever_offsetY, vPowerGearLever_offsetZ])
+            cube([vPowerGearLever_l, vPowerGearLever_w, vPowerGearLever_h]);
 
-$fn = 120;
-
-vModul = 0.98; // empirisch ermittelt, damit wir "genau das richtige Spiel" für einen leichten, aber dennoch hinreichend präzisen Lauf bekommen
-vZahnzahl = 20;
-vBreite = 3;
-vBohrung = 4.1; 
-vEingriffswinkel = 20;
-vSchraegungswinkel = 0;
-
-vLever_l = 15;
-vLever_w = 4;
-vLever_h = vBreite;
-vLever_offsetX = vBohrung/2 + 0.2;
-vLever_offsetY = -vLever_w/2;
-vLever_offsetZ = 0;
-
-
-stirnrad (modul=vModul, zahnzahl=vZahnzahl, breite=vBreite, bohrung=vBohrung, eingriffswinkel=vEingriffswinkel, schraegungswinkel = vSchraegungswinkel);
-
-translate([vLever_offsetX, vLever_offsetY, vLever_offsetZ])
-    cube([vLever_l, vLever_w, vLever_h]);
+        // we add a tube to fit onto the stepper motor axis/gear
+        translate([vPowerGearTube_offsetX, vPowerGearTube_offsetY, vPowerGearTube_offsetZ])
+            cylinder(d=vPowerGearTube_d, h=vPowerGearTube_h);
+}
+// because we added that tube, we have to drill a hole into it
+    translate([vPowerGearTube_offsetX, vPowerGearTube_offsetY, vPowerGearTube_offsetZ])
+        cylinder(d=vPowerGearHole_d, h=vPowerGearTube_h);
+}
