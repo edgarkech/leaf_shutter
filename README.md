@@ -73,3 +73,6 @@ Update 2021-01-24:
 - added controller case (buttons currently missing!)
 - some SCAD code consolidation in progress
 - re-created the STLs to match the current SCAD files
+
+Update 2021-01-30:
+- modified all direct shutter .scad files to use the config.scad as configuration file. This makes scaling up/down easier and helps getting proper/fitting/consistent parts. Please be aware that there might be some bugs, as I didn't recreate, test and print all changed STLs.
