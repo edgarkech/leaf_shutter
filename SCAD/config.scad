@@ -247,7 +247,7 @@ vShutterLidLinhofOuter_h = vWallStrength;
 // the offset variables are depending on following variables, so we set them later  
 
 vShutterLidLinhofInner_d = vShutterLidLinhofOuter_d - (2*vWallStrength) - (2*vTolerance);
-vShutterLidLinhofInner_h = vWallStrength;
+vShutterLidLinhofInner_h = vWallStrength-vTolerance;
 // the offset variables are depending on following variables, so we set them later  
 
 vShutterLidLinhofOpening_d = vShutterOpening;
