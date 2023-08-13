@@ -217,7 +217,7 @@ vShutterLidOuter_offsetY = 0;
 vShutterLidOuter_offsetZ = 0;
 
 vShutterLidInner_d = vShutterLidOuter_d - (2*vWallStrength) - (2*vTolerance);
-vShutterLidInner_h = vWallStrength;
+vShutterLidInner_h = vWallStrength-vTolerance;
 vShutterLidInner_offsetX = 0;
 vShutterLidInner_offsetY = 0;
 vShutterLidInner_offsetZ = vWallStrength;
