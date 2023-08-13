@@ -76,3 +76,7 @@ Update 2021-01-24:
 
 Update 2021-01-30:
 - modified all direct shutter .scad files to use the config.scad as configuration file. This makes scaling up/down easier and helps getting proper/fitting/consistent parts. Please be aware that there might be some bugs, as I didn't recreate, test and print all changed STLs.
+
+Update 2023-10-13
+- Time to pck up this project again. Looks like I have to fix some controller problems when powering up (stepper does unwanted steps when powering up and thus is some degrees off the expected starting point)
+- I will also make another prototype which will be powered by a servo instead of a stepper (and hope that it is fast and accurate enough).
